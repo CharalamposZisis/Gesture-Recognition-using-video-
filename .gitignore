@@ -6,6 +6,7 @@ __pycache__/
 # C extensions
 *.so
 
+/sign_language.yolov5pytorch
 # Distribution / packaging
 .Python
 build/
