@@ -1,3 +1,8 @@
 mediapipe
 opencv-python
 numpy
+torch
+torchvision
+ultralytics
+pandas
+yolov5
