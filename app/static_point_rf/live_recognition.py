@@ -11,13 +11,20 @@ print("="*50)
 with open('rf_model.pkl', 'rb') as f:
     model = pickle.load(f)
 
-# 2. Φτιάχνουμε τα ονόματα των στηλών (όπως ακριβώς ήταν στο Excel)
-# για να καταλαβαίνει το μοντέλο τι του δίνουμε
+# 2. Φτιάχνουμε τα ονόματα των στηλών (όπως ακριβώς ήταν στο CSV)
 columns = []
 for i in range(21):
     columns.extend([f'x{i}', f'y{i}'])
 
-# 3. Ξεκινάμε το MediaPipe για να βλέπει τον σκελετό
+# 3. Λεξικό Μετάφρασης για την Οθόνη (Το OpenCV δεν τυπώνει Ελληνικά)
+display_map = {
+    'A': 'A', 'B': 'B', 'Γ': 'Gamma', 'Δ': 'Delta', 'E': 'E', 'Z': 'Z',
+    'H': 'H', 'Θ': 'Theta', 'I': 'I', 'K': 'K', 'Λ': 'Lambda', 'M': 'M',
+    'N': 'N', 'Ξ': 'Xi', 'O': 'O', 'Π': 'Pi', 'P': 'P', 'Σ': 'Sigma',
+    'T': 'T', 'Y': 'Y', 'Φ': 'Phi', 'X': 'X', 'Ψ': 'Psi', 'Ω': 'Omega'
+}
+
+# 4. Ξεκινάμε το MediaPipe για να βλέπει τον σκελετό
 mp_hands = mp.solutions.hands
 hands = mp_hands.Hands(max_num_hands=1, min_detection_confidence=0.7)
 mp_draw = mp.solutions.drawing_utils
@@ -25,7 +32,7 @@ mp_draw = mp.solutions.drawing_utils
 def main():
     cap = cv2.VideoCapture(0)
     
-    print("Η κάμερα άνοιξε! Κάνε τα γράμματα Α, Β ή Γ μπροστά της.")
+    print("Η κάμερα άνοιξε! Κάνε οποιοδήποτε από τα 24 γράμματα μπροστά της.")
     print("Πάτα 'q' στο παράθυρο της κάμερας για έξοδο.\n")
 
     while cap.isOpened():
@@ -52,12 +59,10 @@ def main():
             # Του ζητάμε να μαντέψει τι βλέπει!
             prediction = model.predict(X_live)[0]
             
-            # Μια μικρή διόρθωση για την οθόνη (για να βλέπουμε τη λέξη Gamma)
-            display_text = prediction
-            if prediction == 'G':
-                display_text = 'G (Gamma)'
+            # Μεταφράζουμε την πρόβλεψη για να μπορεί να την τυπώσει το OpenCV
+            display_text = display_map.get(prediction, prediction)
             
-            # Εμφανίζουμε την πρόβλεψη στην οθόνη με τεράστια πράσινα γράμματα
+            # Εμφανίζουμε την πρόβλεψη στην οθόνη
             cv2.putText(frame, f"Letter: {display_text}", (20, 80), 
                         cv2.FONT_HERSHEY_SIMPLEX, 1.5, (0, 255, 0), 4)
 

@@ -10,7 +10,7 @@ print("="*50)
 
 # 1. Φόρτωση των δεδομένων από το Excel/CSV
 print("[1/4] Φόρτωση δεδομένων από το 'greek_hand_dataset.csv'...")
-df = pd.read_csv('greek_hand_dataset.csv')
+df = pd.read_csv('greek_hand_dataset.csv', encoding='windows-1253')
 
 # 2. Διαχωρισμός: Τι ψάχνουμε (Γράμμα) και τι έχουμε (Συντεταγμένες)
 # Το 'y' είναι η στήλη 'label' (τα γράμματα Α, Β, G)
