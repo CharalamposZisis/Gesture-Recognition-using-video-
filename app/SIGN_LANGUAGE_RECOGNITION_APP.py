@@ -6,12 +6,15 @@ import torch
 import numpy as np
 import time
 
+import pathlib
+temp = pathlib.PosixPath
+pathlib.PosixPath = pathlib.WindowsPath
 # ============================================================
 # SETUP
 # ============================================================
 
 # Φόρτωσε το YOLOv5 model
-MODEL_PATH = '/home/charis/Desktop/Projects/Gesture-Recognition-using-video-/app/best.pt'
+MODEL_PATH = 'best.pt'
 CONFIDENCE_THRESHOLD = 0.5
 
 print("Loading YOLOv5 model...")
