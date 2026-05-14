@@ -9,8 +9,8 @@ print("ΕΚΠΑΙΔΕΥΣΗ ΜΟΝΤΕΛΟΥ RANDOM FOREST")
 print("="*50)
 
 # 1. Φόρτωση των δεδομένων από το Excel/CSV
-print("[1/4] Φόρτωση δεδομένων από το 'greek_hand_dataset.csv'...")
-df = pd.read_csv('greek_hand_dataset.csv', encoding='windows-1253')
+print("[1/4] Φόρτωση δεδομένων από το 'final_merged_dataset_relative.csv'...")
+df = pd.read_csv('final_merged_dataset_relative.csv', encoding='utf-8-sig')
 
 # 2. Διαχωρισμός: Τι ψάχνουμε (Γράμμα) και τι έχουμε (Συντεταγμένες)
 # Το 'y' είναι η στήλη 'label' (τα γράμματα Α, Β, G)
@@ -36,8 +36,8 @@ print(f"\n---> ΑΚΡΙΒΕΙΑ (ACCURACY): {score * 100:.2f}% <---")
 
 # 5. Αποθήκευση του "εγκεφάλου"
 print("\n[4/4] Αποθήκευση του εκπαιδευμένου μοντέλου...")
-with open('rf_model.pkl', 'wb') as f:
+with open('rf_model_merged_relative.pkl', 'wb') as f:
     pickle.dump(model, f)
 
-print("ΤΕΛΟΣ! Το αρχείο 'rf_model.pkl' δημιουργήθηκε επιτυχώς.")
+print("ΤΕΛΟΣ! Το αρχείο 'rf_model_merged_relative.pkl' δημιουργήθηκε επιτυχώς.")
 print("="*50 + "\n")

@@ -5,8 +5,8 @@ print("\n" + "="*50)
 print("  ΕΡΓΑΛΕΙΟ ΜΕΤΑΤΡΟΠΗΣ ΣΕ ΣΧΕΤΙΚΕΣ ΣΥΝΤΕΤΑΓΜΕΝΕΣ")
 print("="*50)
 
-old_file = 'greek_hand_dataset.csv'
-new_file = 'greek_hand_dataset_relative.csv'
+old_file = 'greek_hand_dataset_mpampis.csv'
+new_file = 'greek_hand_dataset_relative_mpampis.csv'
 
 if not os.path.isfile(old_file):
     print(f"Σφάλμα: Δεν βρέθηκε το αρχείο {old_file}.")
@@ -14,7 +14,7 @@ else:
     try:
         print("[1/3] Φόρτωση του παλιού dataset...")
         # Διαβάζουμε το αρχείο με τα απόλυτα νούμερα
-        df = pd.read_csv(old_file, encoding='windows-1253')
+        df = pd.read_csv(old_file, encoding='utf-8')
         
         print("[2/3] Υπολογισμός των νέων (σχετικών) συντεταγμένων...")
         # Δημιουργούμε ένα αντίγραφο για να βάλουμε τα νέα νούμερα
