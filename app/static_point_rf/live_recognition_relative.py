@@ -8,7 +8,7 @@ print("ΦΟΡΤΩΣΗ ΕΞΥΠΝΟΥ ΣΥΣΤΗΜΑΤΟΣ (PRO VERSION)...")
 print("="*50)
 
 # 1. Φορτώνουμε τον "εγκέφαλο"
-with open('rf_model_merged_relative.pkl', 'rb') as f:
+with open('rf_model_merged_final_relative.pkl', 'rb') as f:
     model = pickle.load(f)
 
 columns = []

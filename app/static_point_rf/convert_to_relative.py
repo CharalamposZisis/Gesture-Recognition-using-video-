@@ -5,8 +5,8 @@ print("\n" + "="*50)
 print("  ΕΡΓΑΛΕΙΟ ΜΕΤΑΤΡΟΠΗΣ ΣΕ ΣΧΕΤΙΚΕΣ ΣΥΝΤΕΤΑΓΜΕΝΕΣ")
 print("="*50)
 
-old_file = 'greek_hand_dataset_mpampis.csv'
-new_file = 'greek_hand_dataset_relative_mpampis.csv'
+old_file = 'greek_hand_dataset_tasos.csv'
+new_file = 'greek_hand_dataset_relative_tasos.csv'
 
 if not os.path.isfile(old_file):
     print(f"Σφάλμα: Δεν βρέθηκε το αρχείο {old_file}.")

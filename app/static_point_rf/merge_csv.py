@@ -5,9 +5,9 @@ print("\n" + "="*60)
 print("  ΕΡΓΑΛΕΙΟ ΕΝΩΣΗΣ CSV (ΜΕ ΑΥΤΟΜΑΤΗ ΑΝΑΓΝΩΡΙΣΗ ΚΩΔΙΚΟΠΟΙΗΣΗΣ)")
 print("="*60)
 
-file1 = 'greek_hand_dataset_relative_mpampis.csv'
-file2 = 'greek_hand_dataset_relative_chris.csv'
-output_file = 'final_merged_dataset_relative.csv'
+file1 = 'final_merged_dataset_relative.csv'
+file2 = 'greek_hand_dataset_relative_tasos.csv'
+output_file = 'Final_final_merged_dataset_relative.csv'
 
 def read_csv_smart(filename):
     # Λίστα με τις πιο γνωστές κωδικοποιήσεις. Το πρόγραμμα θα τις δοκιμάσει με τη σειρά.
